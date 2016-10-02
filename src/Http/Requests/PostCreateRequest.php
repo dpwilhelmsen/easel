@@ -22,9 +22,9 @@ class PostCreateRequest extends Request
     public function rules()
     {
         return [
-            'title'        => 'required',
+            /*'title'        => 'required',
             'slug'         => 'required',
-            'subtitle'     => 'required',
+            'subtitle'     => 'required',*/
             'content'      => 'required',
             'published_at' => 'required',
             'layout'       => 'required',

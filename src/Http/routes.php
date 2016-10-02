@@ -6,14 +6,14 @@ Route::group(['middleware' => ['web']], function () {
     | Blog Routes
     |--------------------------------------------------------------------------
     */
-    Route::group([
+    /*Route::group([
         'prefix'    => config('easel.blog_base_url'),
         'namespace' => 'Frontend',
     ], function () {
         Route::get('/', 'BlogController@index');
         Route::get('/{slug}', 'BlogController@showPost');
         Route::get('/author/{id}', 'BlogController@showPostsByAuthor');
-    });
+    });*/
 
     /*
     |--------------------------------------------------------------------------
