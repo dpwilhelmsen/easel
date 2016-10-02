@@ -219,4 +219,12 @@ class Post extends Model
 
         return $query->first();
     }
+
+    public function getTitle($value)
+    {
+        if(!$value) {
+            return 'Entry' . $this->id;
+        }
+        return $value;
+    }
 }
