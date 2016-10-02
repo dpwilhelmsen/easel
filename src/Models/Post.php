@@ -220,7 +220,7 @@ class Post extends Model
         return $query->first();
     }
 
-    public function getTitle($value)
+    public function getTitleAttribute($value)
     {
         if(!$value) {
             return 'Entry' . $this->id;
