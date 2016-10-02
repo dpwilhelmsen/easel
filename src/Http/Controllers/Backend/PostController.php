@@ -6,6 +6,7 @@ use Easel\Http\Controllers\Controller;
 use Easel\Http\Jobs\PostFormFields;
 use Easel\Http\Requests\PostCreateRequest;
 use Easel\Http\Requests\PostUpdateRequest;
+use Easel\Http\Requests\FileImporterRequest;
 use Easel\Models\Post;
 use Session;
 
@@ -105,5 +106,15 @@ class PostController extends Controller
         Session::set('_delete-post', trans('easel::messages.delete_success', ['entity' => 'Post']));
 
         return redirect()->route('admin.post.index');
+    }
+
+    public function importFile(FileImporterRequest $request)
+    {
+        $delimiter = $request->get('delimiter');
+        $postsFile = $request->file('posts');
+        $contents = File::get($postsFile::path());
+        $posts = explode($delimiter,$contents);
+        dump($posts);
+
     }
 }

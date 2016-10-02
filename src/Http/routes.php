@@ -47,6 +47,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/admin/browser/rename', 'MediaController@rename');
         Route::get('/admin/browser/directories', 'MediaController@allDirectories');
         Route::post('/admin/browser/move', 'MediaController@move');
+        Route::post('/admin/import', 'PostController@importFile');
 
         // Profile Routes
         Route::group(['as' => 'admin.profile.'], function () {

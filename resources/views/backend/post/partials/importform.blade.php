@@ -1,27 +1,23 @@
 {!! Form::open(
     array(
-        'route' => 'admin.products.store',
+        'url' => '/admin/import',
+        'method' => 'post',
         'class' => 'form',
         'novalidate' => 'novalidate',
         'files' => true)) !!}
 
 <div class="form-group">
-    {!! Form::label('Product Name') !!}
-    {!! Form::text('name', null, array('placeholder'=>'Chess Board')) !!}
+    {!! Form::label('Posts TXT File') !!}
+    {!! Form::file('posts', null) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('Product SKU') !!}
-    {!! Form::text('sku', null, array('placeholder'=>'1234')) !!}
+    {!! Form::label('Delimiter') !!}
+    {!! Form::text('delimiter', null) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('Product Image') !!}
-    {!! Form::file('image', null) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::submit('Create Product!') !!}
+    {!! Form::submit('Import Posts') !!}
 </div>
 {!! Form::close() !!}
 </div>
