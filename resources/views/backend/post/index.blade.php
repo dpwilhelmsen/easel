@@ -67,6 +67,10 @@
                     </div>
                 </div>
             </div>
+            <div>
+                Import From File
+                @include('easel::backend.post.partials.importform')
+            </div>
         </section>
     </section>
 @stop
