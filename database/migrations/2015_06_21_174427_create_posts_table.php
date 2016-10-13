@@ -17,8 +17,8 @@ class CreatePostsTable extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->string('subtitle');
-            $table->text('content_raw');
-            $table->text('content_html');
+            $table->mediumText('content_raw');
+            $table->mediumText('content_html');
             $table->string('page_image')->nullable();
             $table->string('meta_description')->nullable();
             $table->boolean('is_draft')->default(false);

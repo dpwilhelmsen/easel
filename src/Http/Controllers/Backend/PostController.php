@@ -9,6 +9,7 @@ use Easel\Http\Requests\PostUpdateRequest;
 use Easel\Http\Requests\FileImporterRequest;
 use Easel\Models\Post;
 use Session;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -112,9 +113,31 @@ class PostController extends Controller
     {
         $delimiter = $request->get('delimiter');
         $postsFile = $request->file('posts');
-        $contents = File::get($postsFile::path());
+        $contents = \File::get($postsFile->path());
+        //$contents = nl2br($contents);
         $posts = explode($delimiter,$contents);
-        dump($posts);
+
+        //dump($posts);
+
+        $time = Carbon::now();
+        $time = $time->subDays(7);
+
+        foreach($posts as $postText) {
+            $time = $time->addMinutes(10);
+            $post = Post::create([
+                'title'            => "Entry {$time->timestamp}",
+                'slug'             => "entry-{$time->timestamp}",
+                'subtitle'         => '',
+                'content_raw'      => $postText,
+                'is_draft'         => 0,
+                'published_at'     => $time->format('Y-m-d H:i:s'),
+                'author_id'        => 1,
+            ]);
+        }
+
+        Session::set('_new-post', trans('easel::messages.create_success', ['entity' => 'Post']));
+
+        return redirect()->route('admin.post.index');
 
     }
 }
