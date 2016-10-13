@@ -39,6 +39,8 @@ class EaselServiceProvider extends ServiceProvider
             $this->defineResources();
             $this->defineMigrations();
         }
+
+        Post::observe(PostObserver::class);
     }
 
     /**

@@ -43,33 +43,42 @@
                     <div class="table-responsive">
                         <table id="data-table-posts" class="table table-condensed table-vmiddle">
                             <thead>
-                                <tr>
-                                    <th data-column-id="id" data-type="numeric" data-sortable="false">Id</th>
-                                    <th data-column-id="title">Title</th>
-                                    <th data-column-id="subtitle">Subtitle</th>
-                                    <th data-column-id="slug">Slug</th>
-                                    <th data-column-id="published" data-type="date" data-order="desc">Published</th>
-                                    <th data-column-id="commands" data-formatter="commands" data-sortable="false">Actions</th>
-                                </tr>
+                            <tr>
+                                <th data-column-id="id" data-type="numeric" data-sortable="false">Id</th>
+                                <th data-column-id="title">Title</th>
+                                <th data-column-id="subtitle">Subtitle</th>
+                                <th data-column-id="slug">Slug</th>
+                                <th data-column-id="published" data-type="date" data-order="desc">Published</th>
+                                <th data-column-id="commands" data-formatter="commands" data-sortable="false">Actions</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $post)
-                                    <tr>
-                                        <td>{{ $post->id }}</td>
-                                        <td>{{ $post->title }}</td>
-                                        <td>{{ $post->subtitle }}</td>
-                                        <td>{{ $post->slug }}</td>
-                                        <td>{{ $post->published_at->format('M d, Y') }}</td>
-                                    </tr>
-                                @endforeach
+                            @foreach ($data as $post)
+                                <tr>
+                                    <td>{{ $post->id }}</td>
+                                    <td>{{ $post->title }}</td>
+                                    <td>{{ $post->subtitle }}</td>
+                                    <td>{{ $post->slug }}</td>
+                                    <td>{{ $post->published_at->format('M d, Y') }}</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-sm-12 form-inline">
+                                    <hr>
+                                    <h2>Import From File</h2>
+                                    <br>
+                                    @include('easel::backend.post.partials.importform')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                Import From File
-                @include('easel::backend.post.partials.importform')
             </div>
         </section>
     </section>

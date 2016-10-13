@@ -223,7 +223,7 @@ class Post extends Model
     public function getTitleAttribute($value)
     {
         if(!$value) {
-            return 'Entry' . $this->id;
+            return 'Entry' . $this->post_number;
         }
         return $value;
     }

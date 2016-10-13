@@ -7,17 +7,25 @@
         'files' => true)) !!}
 
 <div class="form-group">
-    {!! Form::label('Posts TXT File') !!}
-    {!! Form::file('posts', null) !!}
-</div>
+    <div class="input-group">
+        <label class="btn btn-primary btn-icon-text waves-effect btn-file" title="Upload">
+            <i class="zmdi zmdi-upload" ></i>
+            <span class="hidden-xs">Upload .txt File</span>
+            {!! Form::file('posts', null, ['class'=> 'hidden']) !!}
+        </label>
 
-<div class="form-group">
-    {!! Form::label('Delimiter') !!}
-    {!! Form::text('delimiter', null) !!}
-</div>
+    </div>
 
-<div class="form-group">
-    {!! Form::submit('Import Posts') !!}
-</div>
-{!! Form::close() !!}
+    <div class="form-group" style="margin:0px 15px;">
+        <div class="input-group">
+            {!! Form::text('Delimiter', null, ['placeholder' => 'delimiter', 'class' => 'form-control']) !!}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            {!! Form::submit('Import Posts') !!}
+        </div>
+    </div>
+    {!! Form::close() !!}
 </div>
