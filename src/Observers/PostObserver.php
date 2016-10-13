@@ -21,7 +21,7 @@ class PostObserver
      */
     public function saved(Post $post)
     {
-        $posts = Post:where('is_draft', 0)
+        $posts = Post::where('is_draft', 0)
             ->orderBy('published_at', 'asc')->all();
 
         $posts->each(function ($post, $key) {
