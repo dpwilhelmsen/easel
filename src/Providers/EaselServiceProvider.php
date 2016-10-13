@@ -13,6 +13,8 @@ use Collective\Html\HtmlServiceProvider;
 use Easel\Console\Commands\InstallCommand;
 use Easel\Console\Commands\UpdateCommand;
 use Easel\Models\BlogUserInterface;
+use Easel\Models\Post;
+use Easel\Observers\PostObserver;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Scout\ScoutServiceProvider;
